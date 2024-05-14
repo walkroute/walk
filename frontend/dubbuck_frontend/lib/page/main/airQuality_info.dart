@@ -21,32 +21,32 @@ class AirQualityInfo extends StatelessWidget {
 
     switch (condition) {
       case 1:
-        imagePath = 'assets/매우좋음.png';
+        imagePath = 'assets/weather/매우좋음.png';
         text = '매우 좋음';
         textColor = Colors.indigo;
         break;
       case 2:
-        imagePath = 'assets/좋음.png';
+        imagePath = 'assets/weather/좋음.png';
         text = '좋음';
         textColor = Colors.indigo;
         break;
       case 3:
-        imagePath = 'assets/보통.png';
+        imagePath = 'assets/weather/보통.png';
         text = '보통';
         textColor = Colors.black87;
         break;
       case 4:
-        imagePath = 'assets/나쁨.png';
+        imagePath = 'assets/weather/나쁨.png';
         text = '나쁨';
         textColor = Colors.black87;
         break;
       case 5:
-        imagePath = 'assets/매우나쁨.png';
+        imagePath = 'assets/weather/매우나쁨.png';
         text = '매우 나쁨';
         textColor = Colors.black87;
         break;
       default:
-        imagePath = 'assets/very_bad.png';
+        imagePath = 'assets/weather/보통.png';
         text = '정보 없음';
         textColor = Colors.grey;
         break;

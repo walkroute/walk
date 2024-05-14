@@ -25,14 +25,14 @@ class WeatherInfo extends StatelessWidget {
             children: [
               Text('체감온도 ${weatherData.feelsLike}°C', style: TextStyle(color: Colors.deepOrangeAccent)),
               SizedBox(width: 8),
-              Image.asset('assets/풍속.png', width: 24),
+              Image.asset('assets/weather/풍속.png', width: 24),
               SizedBox(width: 8),
               Text('풍속 ${weatherData.windSpeed}m/s', style: TextStyle(color: Colors.blueGrey)),
             ],
           ),
           Row(
             children: [
-              Image.asset('assets/습도.png', width: 24),
+              Image.asset('assets/weather/습도.png', width: 24),
               SizedBox(width: 8),
               Text('습도 ${weatherData.humidity}%', style: TextStyle(color: Colors.blueAccent)),
               SizedBox(width: 8),

@@ -34,7 +34,8 @@ class _CalendarPageState extends State<CalendarPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('캘린더'),
+        leading: Container(), // 뒤로가기 버튼을 없앱니다.
+        title: Container(), // 캘린더 이름을 없앱니다.
       ),
       body: Column(
         children: [

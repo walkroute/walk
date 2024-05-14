@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import '../../../repository/image_repository.dart';
 import 'custom_cached_network_image.dart';
-import 'image_detail_screen.dart';
+import 'image_detail_page.dart';
 
 class PhotoPage extends StatefulWidget {
   @override
@@ -14,9 +14,6 @@ class _PhotoPageState extends State<PhotoPage> {
   final ScrollController _scrollController = ScrollController();
 
   Future<void> _refreshImages() async {
-    // 여기서 이미지 목록을 새로 고치는 로직을 구현할 수 있습니다.
-    // 예시: 새로운 이미지 URL을 가져와서 _imageUrls 리스트를 업데이트합니다.
-    // 이 예시에서는 단순히 상태를 업데이트하는 것으로 처리합니다.
     setState(() {});
   }
 

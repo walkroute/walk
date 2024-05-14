@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../calender/calendar_screen.dart';
-import '../community/community_screen.dart';
+import '../community/community_page.dart';
+import '../chat/chat_home_page.dart';
 import '../dubbuck/dubbuck_screen.dart';
-import '../dubbuckDiary/diary_screen.dart';
+import '../dubbuckDiary/diary_home_page.dart';
 import '../seongkeum/seongkeum_screen.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
@@ -27,10 +27,10 @@ class CustomBottomNavBar extends StatelessWidget {
             Navigator.push(context, MaterialPageRoute(builder: (context) => SeongkeumPage()));
             break;
           case 2:
-            Navigator.push(context, MaterialPageRoute(builder: (context) => DiaryPage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => DiraryHomePage()));
             break;
           case 3:
-            Navigator.push(context, MaterialPageRoute(builder: (context) => CalendarPage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ChatHomePage()));
             break;
           case 4:
             Navigator.push(context, MaterialPageRoute(builder: (context) => CommunityPage()));
@@ -55,8 +55,8 @@ class CustomBottomNavBar extends StatelessWidget {
         children: <Widget>[
           _navBarItem(Icons.directions_run, '뚜벅뚜벅', 0, context),
           _navBarItem(Icons.hiking, '성큼성큼', 1, context),
-          _navBarItem(Icons.photo_library, '뚜벅기록', 2, context),
-          _navBarItem(Icons.calendar_today, '캘린더', 3, context),
+          _navBarItem(Icons.photo_library, '기록', 2, context),
+          _navBarItem(Icons.chat, '채팅', 3, context),
           _navBarItem(Icons.group, '커뮤니티', 4, context),
         ],
       ),

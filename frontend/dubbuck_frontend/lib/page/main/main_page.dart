@@ -1,20 +1,21 @@
+import 'dart:async';
 import 'dart:convert';
 
+import 'package:dubbuck_front/model/airQuality_data.dart';
 import 'package:dubbuck_front/model/weather_data.dart';
-import 'package:dubbuck_front/screen/main/weather_info.dart';
+import 'package:dubbuck_front/page/main/settings_page.dart';
+import 'package:dubbuck_front/page/main/weather_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:provider/provider.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:http/http.dart' as http;
 import 'package:skeletons/skeletons.dart';
-import '../../model/airQuality_data.dart';
-import '../../provider/user_profile_provider.dart';
-import '../profile/profile_screen.dart';
+
+import '../../constant/color_constants.dart';
+import '../../model/menu_setting.dart';
 import 'airQuality_info.dart';
 import 'custom_bottom_nav_bar.dart';
 import 'daily_info_tiles.dart';
-import 'logout.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:http/http.dart' as http;
 
 class MainPage extends StatefulWidget {
   @override
@@ -25,6 +26,11 @@ class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   Future<WeatherData>? futureWeatherData;
   Future<AirQualityData>? futureAirQualityData;
+
+  final _menus = <MenuSetting>[
+    MenuSetting(title: 'Settings', icon: Icons.settings),
+    MenuSetting(title: 'Log out', icon: Icons.exit_to_app),
+  ];
 
   @override
   void initState() {
@@ -131,34 +137,65 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  void _onItemMenuPress(MenuSetting choice) {
+    if (choice.title == 'Log out') {
+      _handleSignOut();
+    } else {
+      Navigator.push(context, MaterialPageRoute(builder: (_) => SettingsPage()));
+    }
+  }
+
+  Future<void> _handleSignOut() async {
+    // Handle sign-out logic here
+  }
+
+  Widget _buildPopupMenu() {
+    return PopupMenuButton<MenuSetting>(
+      onSelected: _onItemMenuPress,
+      itemBuilder: (_) {
+        return _menus.map(
+              (choice) {
+            return PopupMenuItem<MenuSetting>(
+              value: choice,
+              child: Row(
+                children: [
+                  Icon(
+                    choice.icon,
+                    color: ColorConstants.primaryColor,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    choice.title,
+                    style: TextStyle(color: ColorConstants.primaryColor),
+                  ),
+                ],
+              ),
+            );
+          },
+        ).toList();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final userProfileProvider = Provider.of<UserProfileProvider>(context);
-
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.logout),
-            onPressed: () => logout(context),
-          ),
-        ],
+        actions: [_buildPopupMenu()],
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            ListTile(
-              leading: GestureDetector(
-                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen())),
-                child: CircleAvatar(
-                  backgroundImage: userProfileProvider.profileImage != null ? FileImage(userProfileProvider.profileImage!) : null,
-                  backgroundColor: Colors.grey.shade200,
-                ),
-              ),
-              title: Text(userProfileProvider.nickname ?? 'User'),
-            ),
             FutureBuilder<WeatherData>(
               future: futureWeatherData,
               builder: (context, snapshot) {
@@ -196,12 +233,5 @@ class _MainPageState extends State<MainPage> {
         onItemTapped: _onItemTapped,
       ),
     );
-  }
-
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
   }
 }
