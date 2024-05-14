@@ -1,7 +1,7 @@
 class EventsRepository {
   Map<DateTime, List<Map<String, dynamic>>> getEvents() {
     return {
-      DateTime.utc(2024, 3, 22): [
+      DateTime.utc(2024, 5, 22): [
         {
           'title': 'Morning Walk',
           'distance': 5, // km
@@ -10,7 +10,7 @@ class EventsRepository {
           'questCompleted': true,
         },
       ],
-      DateTime.utc(2024, 3, 23): [
+      DateTime.utc(2024, 5, 23): [
         {
           'title': 'Evening Jogging',
           'distance': 3,

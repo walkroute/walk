@@ -1,7 +1,3 @@
-import 'dart:ui';
-
-import 'package:flutter/material.dart';
-
 class WeatherData {
   final String condition;
   final double temperature;

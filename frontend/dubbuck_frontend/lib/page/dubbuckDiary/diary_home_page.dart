@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dubbuck_front/screen/dubbuckDiary/calendar_page.dart';
-import '../community/picture/photo_page.dart';
+import 'calendar_page.dart';
 import 'log_page.dart';
 
 class DiraryHomePage extends StatefulWidget {

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "113515951255",
+    "project_id": "socialchatting-cb16d",
+    "storage_bucket": "socialchatting-cb16d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113515951255:android:5259d9b9812e75ae90a5d2",
+        "android_client_info": {
+          "package_name": "com.example.dubbuck_front"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113515951255-5tq5dnpclcbqpd0f4vrh383ed0ilu4kn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dubbuck_front",
+            "certificate_hash": "0b908ed474924a61b6004985030e99a1312afb1d"
+          }
+        },
+        {
+          "client_id": "113515951255-p5g2lnfhao8cofb3nm3t30bpmugmd4hv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOyOOBPR72nqow3Gbo6aN-ix1_rRpipQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113515951255-p5g2lnfhao8cofb3nm3t30bpmugmd4hv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
